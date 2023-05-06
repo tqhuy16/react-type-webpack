@@ -1,8 +1,8 @@
-const path = require("path");
+const path = require('path')
 const lodash = require('lodash')
 const webpack = require('webpack')
 /* thêm html-webpack-plugin vào file cấu hình */
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
@@ -30,27 +30,27 @@ module.exports = (env) => {
   return {
     /* đây là file đầu tiên mà webpack sẽ đọc ở đây mình để index.js */
 
-    mode: IS_DEV ? "development" : "production",
+    mode: IS_DEV ? 'development' : 'production',
     /* cho biết vị trí chính xác của lỗi */
-    devtool: IS_DEV ? "eval-source-map" : "source-map",
+    devtool: IS_DEV ? 'eval-source-map' : 'source-map',
     target: IS_DEV ? 'web' : 'browserslist',
-    entry: path.resolve(__dirname, "./src/index.js"),
+    entry: path.resolve(__dirname, './src/index.js'),
     /* cấu hình thư mục đầu ra là build và tên file là random,
     clean dùng để reset thư mục dist khi build */
     output: {
-      path: path.resolve(__dirname, "build"),
-      filename: "[name].js",
-      clean: true,
+      path: path.resolve(__dirname, 'build'),
+      filename: '[name].js',
+      clean: true
     },
     optimization: {
       splitChunks: {
-        chunks: "all",
-      },
+        chunks: 'all'
+      }
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
       alias: {
-        "@": path.resolve(__dirname, "src")
+        '@': path.resolve(__dirname, 'src')
       }
     },
     /* đoạn code sau sẽ load các gói babel vào webpack */
@@ -59,12 +59,12 @@ module.exports = (env) => {
         {
           test: /\.tsx?$/, // Sẽ sử dụng babel-loader cho những file .ts || .tsx
           exclude: /node_modules/,
-          use: ["babel-loader"], // Giúp dịch code TS, React sang JS,
+          use: ['babel-loader'] // Giúp dịch code TS, React sang JS,
         },
         {
           test: /\.js$/, // Sẽ sử dụng babel-loader cho những file .js
           exclude: /node_modules/, // Loại trừ thư mục node_modules
-          use: ["babel-loader"]
+          use: ['babel-loader']
         },
         {
           test: /\.less$/,
@@ -76,19 +76,15 @@ module.exports = (env) => {
               loader: 'less-loader',
               options: {
                 lessOptions: {
-                  javascriptEnabled: true,
-                },
-              },
+                  javascriptEnabled: true
+                }
+              }
             }
           ]
         },
         {
           test: /\.css$/,
-          use: [
-            IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'postcss-loader'
-          ]
+          use: [IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
         },
         // {
         //   test: /\.html$/,
@@ -102,30 +98,30 @@ module.exports = (env) => {
         // },
         {
           test: /\.(jpg|jpeg|png|svg|woff|eot|ttf|otf|pdf|gif)$/,
-          use: ["file-loader"],
-        },
-      ],
+          use: ['file-loader']
+        }
+      ]
     },
     /* cấu hình file index.html từ folder public */
     plugins: [
       new HtmlWebpackPlugin({
         title: appConfigs.TITLE,
         template: path.resolve(__dirname, 'public/index.html'),
-        favicon: path.resolve(__dirname, 'src/assets/images/favicon.ico'),
+        favicon: path.resolve(__dirname, 'src/assets/images/favicon.ico')
         // templateParameters: {
         //   language: appConfigs.PAGE_LANGUAGE
         // }
       }),
       new webpack.IgnorePlugin({
         resourceRegExp: /^\.\/locale$/,
-        contextRegExp: /moment$/,
+        contextRegExp: /moment$/
       }),
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[name].css'
       }),
       new webpack.DefinePlugin({
-        'window._CONFIG': JSON.stringify(appConfigs),
+        'window._CONFIG': JSON.stringify(appConfigs)
       }),
       new ForkTsCheckerWebpackPlugin({
         async: false
@@ -135,11 +131,12 @@ module.exports = (env) => {
     /* tự mở tab trình duyệt mới */
     devServer: {
       open: true,
+      historyApiFallback: true
     },
     stats: 'minimal',
     //tắt gợi ý performance, cần nghiên cứu thêm cái qq này
     performance: {
-      hints: false,
-    },
-  };
-};
+      hints: false
+    }
+  }
+}
