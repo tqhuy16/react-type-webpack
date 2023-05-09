@@ -67,20 +67,8 @@ module.exports = (env) => {
           use: ['babel-loader']
         },
         {
-          test: /\.less$/,
-          use: [
-            IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'postcss-loader',
-            {
-              loader: 'less-loader',
-              options: {
-                lessOptions: {
-                  javascriptEnabled: true
-                }
-              }
-            }
-          ]
+          test: /\.s[ac]ss$/i,
+          use: [IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
         },
         {
           test: /\.css$/,

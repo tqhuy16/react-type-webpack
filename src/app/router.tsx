@@ -1,17 +1,17 @@
 import React, { Suspense, lazy } from 'react'
-import { Routes, Route, Navigate, Outlet, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
-import PrivateRoute from '@/component/PrivateRoute'
+import { PrivateRoute, DashboardLayout } from '@/component'
 
 const Login = lazy(() => import('@/pages/Login'))
 const Home = lazy(() => import('@/pages/Home'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
-const DashboardLayout = () => (
-  <>
-    <Outlet />
-  </>
-)
+// const DashboardLayout = () => (
+//   <>
+//     <Outlet />
+//   </>
+// )
 
 const RoutesComponent = () => {
   return (

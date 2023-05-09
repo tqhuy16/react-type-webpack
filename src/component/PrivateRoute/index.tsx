@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 
 import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
 
-type PrivateRouteProps = {
+interface PrivateRouteProps {
   redirect: string
   children: any
 }
