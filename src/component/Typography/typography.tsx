@@ -1,19 +1,19 @@
 import React from 'react'
 import classnames from 'classnames'
 
-// import * as styles from './typography.module.scss'
-
+import styles from './typography.module.scss'
+type TypeSize = 'tiny' | 'small' | 'large' | 'big' | 'huge' | 'giant' | 'enormous'
 interface IProps {
   className?: string
-  size?: string
+  size?: TypeSize
   link?: boolean
   primary?: boolean
   secondary?: boolean
   underline?: boolean
   center?: boolean
-  bold?: boolean
+  // bold?: boolean
   children: React.ReactNode
-  style?: any
+  // style?: any
 }
 
 const Typography = ({
@@ -25,12 +25,12 @@ const Typography = ({
   secondary,
   center,
   size,
-  ...props
+  ...rest
 }: IProps): JSX.Element => {
   return (
     <div
       className={classnames(
-        size || '',
+        size,
         {
           link,
           underline,
@@ -38,10 +38,10 @@ const Typography = ({
           secondary,
           center
         },
-        'typography',
+        styles.typography,
         className
       )}
-      {...props}
+      {...rest}
     >
       {children}
     </div>

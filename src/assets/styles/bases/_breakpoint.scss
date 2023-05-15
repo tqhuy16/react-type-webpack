@@ -1,42 +1,42 @@
-// @mixin breakpoint($size) {
-//   @media only screen and (max-width: $size) {
-//     @content;
-//   }
-// }
-
 @mixin media-query($breakpoint) {
+  // Mobile M
   @if $breakpoint == xs {
-    @media (min-width: 480px) and (max-width: 575px) {
+    @media only screen and (max-width: 479px) {
       @content;
     }
   }
 
+  // Mobile L
   @if $breakpoint == sm {
-    @media (min-width: 576px) and (max-width: 767) {
+    @media only screen and (max-width: 575px) {
       @content;
     }
   }
 
+  // TABLET M
   @if $breakpoint == md {
-    @media (min-width: 768) and (max-width: 991) {
+    @media only screen and (max-width: 767) {
       @content;
     }
   }
 
+  // TABLET L
   @if $breakpoint == lg {
-    @media (min-width: 992px) and (max-width: 1199) {
+    @media only screen and (max-width: 991px) {
       @content;
     }
   }
 
+  // DESKTOP M
   @if $breakpoint == xl {
-    @media (min-width: 1200) and (max-width: 1599) {
+    @media only screen and (max-width: 1199) {
       @content;
     }
   }
 
+  // DESKTOP L
   @if $breakpoint == xxl {
-    @media (min-width: 1600px) {
+    @media only screen and (max-width: 1599px) {
       @content;
     }
   }

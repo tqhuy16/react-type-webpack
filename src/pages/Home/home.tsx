@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '@/component/Typography'
+import Typography from '@/component/Typography/typography'
 
 const Home = () => {
   return (
