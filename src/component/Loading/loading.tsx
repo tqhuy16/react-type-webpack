@@ -1,0 +1,15 @@
+import React from 'react'
+import classnames from 'classnames'
+
+import styles from './loading.module.scss'
+
+interface ILoadingProps {
+  size?: 'small'
+  className?: string
+}
+
+const Loading = ({ size, className }: ILoadingProps) => {
+  return <div className={classnames(styles.loading, size)}></div>
+}
+
+export default Loading

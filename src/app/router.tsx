@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
-import { PrivateRoute, DashboardLayout, PageContent } from '@/component'
+import { PrivateRoute, DashboardLayout, PageContent, Loading } from '@/component'
 
 const Login = lazy(() => import('@/pages/Login/login'))
 const Home = lazy(() => import('@/pages/Home/home'))
@@ -16,7 +16,7 @@ const RoutesComponent = () => {
         <Suspense
           fallback={
             <PageContent>
-              <div>Loading...</div>
+              <Loading />
             </PageContent>
           }
         >

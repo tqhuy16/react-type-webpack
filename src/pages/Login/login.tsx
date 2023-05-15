@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { loginStorage } from '@/utils/local-storage'
 import { login } from '@/api/auth'
 import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
-import { Button, Container, PageContent } from '@/component'
+import { Button, Container, PageContent, InputField } from '@/component'
 import { validationLogin } from '@/shared/validation/login-validation'
 
 import styles from './login.module.scss'
@@ -26,17 +26,25 @@ const Login = (): JSX.Element => {
   const [loading, setLoading] = useState(false)
 
   const { control, handleSubmit } = useForm({
+    mode: 'onSubmit',
     defaultValues: initialValues,
     resolver: yupResolver(validationLogin)
   })
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const { token } = await login(data)
-    if (token) {
-      loginStorage(LOGIN_ACCESS_TOKEN, token)
-      navigate('/')
+    try {
+      setLoading(true)
+      const { token } = await login(data)
+      if (token) {
+        loginStorage(LOGIN_ACCESS_TOKEN, token)
+        navigate('/')
+      }
+      return
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false)
     }
-    return
   }
 
   return (
@@ -46,16 +54,14 @@ const Login = (): JSX.Element => {
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <p className={styles.title}>LOGIN</p>
             <div className={styles.fieldGroup}>
-              <div>admin</div>
-              <Controller name='userName' control={control} render={({ field }) => <input {...field} />} />
-              <div>123456</div>
-              <Controller name='password' control={control} render={({ field }) => <input {...field} />} />
+              <InputField label='Username (admin)' name='userName' control={control} />
+              <InputField label='Password (123456)' name='password' control={control} />
             </div>
-            <div className={styles.actionBox}>
+            <span className={styles.actionBox}>
               <Button size='large' type='submit' loading={loading} onClick={onSubmit}>
                 Submit
               </Button>
-            </div>
+            </span>
 
             {/* <Controller
             name='iceCreamType'

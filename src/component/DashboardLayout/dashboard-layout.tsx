@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { PageContent } from '@/component'
+import { PageContent, Loading } from '@/component'
 
 const DashboardLayout = () => {
   return (
@@ -9,7 +9,7 @@ const DashboardLayout = () => {
       <Suspense
         fallback={
           <PageContent>
-            <div>Loading...</div>
+            <Loading />
           </PageContent>
         }
       >

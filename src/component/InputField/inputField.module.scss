@@ -1,0 +1,9 @@
+@import '@/assets/styles/bases/variables';
+
+.wrapInputField {
+  position: relative;
+
+  .label {
+    margin-bottom: 6px;
+  }
+}
