@@ -11,7 +11,7 @@ const login = (payload: any): Promise<any> => {
   }
   return mockData({
     error: {
-      statusText: 'USERNAME_OR_PASSWORD_INCORRECT'
+      statusText: 'user name or pass word incorrect'
     },
     duration: 1000
   })

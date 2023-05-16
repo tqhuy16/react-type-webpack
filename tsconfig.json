@@ -20,7 +20,8 @@
     },
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "useUnknownInCatchVariables": false
   },
   "include": ["src"]
 }

@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { loginStorage } from '@/utils/local-storage'
 import { login } from '@/api/auth'
 import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
-import { Button, Container, PageContent, InputField } from '@/component'
+import { Button, Container, PageContent, InputField, Toast } from '@/component'
 import { validationLogin } from '@/shared/validation/login-validation'
 
 import styles from './login.module.scss'
@@ -25,7 +25,7 @@ const Login = (): JSX.Element => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm<IFormInput>({
     mode: 'onSubmit',
     defaultValues: initialValues,
     resolver: yupResolver(validationLogin)
@@ -41,7 +41,7 @@ const Login = (): JSX.Element => {
       }
       return
     } catch (error) {
-      console.log(error)
+      Toast('error', error.statusText)
     } finally {
       setLoading(false)
     }

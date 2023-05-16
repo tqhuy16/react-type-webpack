@@ -16,7 +16,16 @@ const InputField = ({ name, control, className, label, ...rest }: IInputFieldPro
   return (
     <div className={styles.wrapInputField}>
       {label && <div className={styles.label}>{label}</div>}
-      <Controller name={name} control={control} render={({ field }) => <Input {...field} />} />
+      <Controller
+        name={name}
+        control={control}
+        render={({ field, fieldState: { error } }) => (
+          <>
+            <Input {...field} />
+            {error?.message && <p className='text-error'>{error?.message}</p>}
+          </>
+        )}
+      />
     </div>
 
     // <div className={styles.wrapInputField}>

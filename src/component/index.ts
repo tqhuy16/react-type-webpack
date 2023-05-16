@@ -9,6 +9,7 @@ import Loading from './Loading/loading'
 import Header from './Header/header'
 import Clickable from './Clickable/clickable'
 import SideBar from './SideBar/side-bar'
+import Toast from './Toast/toast'
 
 export {
   PrivateRoute,
@@ -21,5 +22,6 @@ export {
   Loading,
   Header,
   Clickable,
-  SideBar
+  SideBar,
+  Toast
 }
