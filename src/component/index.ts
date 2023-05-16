@@ -8,6 +8,7 @@ import InputField from './InputField/input-field'
 import Loading from './Loading/loading'
 import Header from './Header/header'
 import Clickable from './Clickable/clickable'
+import SideBar from './SideBar/side-bar'
 
 export {
   PrivateRoute,
@@ -19,5 +20,6 @@ export {
   InputField,
   Loading,
   Header,
-  Clickable
+  Clickable,
+  SideBar
 }

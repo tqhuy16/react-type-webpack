@@ -2,18 +2,18 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 
 import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
+import { ROUTER_PATH } from '@/constants/common'
 
 interface PrivateRouteProps {
-  redirect: string
   children: any
 }
 
 const PrivateRoute = (props: PrivateRouteProps) => {
-  const { redirect, children } = props
+  const { children } = props
 
   const accessToken = window.localStorage.getItem(LOGIN_ACCESS_TOKEN)
   if (accessToken) return children
-  return <Navigate to={redirect} />
+  return <Navigate to={ROUTER_PATH.LOGIN} />
 }
 
 export default PrivateRoute

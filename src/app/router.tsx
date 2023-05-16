@@ -5,8 +5,10 @@ import { PrivateRoute, DashboardLayout, PageContent, Loading } from '@/component
 
 const Login = lazy(() => import('@/pages/Login/login'))
 const Home = lazy(() => import('@/pages/Home/home'))
+const Example = lazy(() => import('@/pages/Example/example'))
 const NotFound = lazy(() => import('@/pages/NotFound/not-found'))
 
+import { ROUTER_PATH } from '@/constants/common'
 import styles from './router.module.scss'
 
 const RoutesComponent = () => {
@@ -21,18 +23,18 @@ const RoutesComponent = () => {
           }
         >
           <Routes>
-            <Route path='/login' element={<Login />} />
+            <Route path={ROUTER_PATH.LOGIN} element={<Login />} />
             <Route
               path='/'
               element={
-                <PrivateRoute redirect='/login'>
+                <PrivateRoute>
                   <DashboardLayout />
                 </PrivateRoute>
               }
             >
               {/* Pages need login to access should put in here */}
               <Route index element={<Home />} />
-              {/* <Route path="/examples" element={<div>Examples</div>} /> */}
+              <Route path={ROUTER_PATH.EXAMPLE} element={<Example />} />
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>

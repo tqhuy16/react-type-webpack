@@ -9,7 +9,7 @@ interface ILoadingProps {
 }
 
 const Loading = ({ size, className }: ILoadingProps) => {
-  return <div className={classnames(styles.loading, size)}></div>
+  return <div className={classnames(styles.loading, size, className)}></div>
 }
 
 export default Loading

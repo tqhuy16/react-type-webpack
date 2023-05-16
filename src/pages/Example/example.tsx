@@ -2,14 +2,14 @@ import React from 'react'
 
 import { Container, PageContent, Typography } from '@/component'
 
-const Home = () => {
+const Example = () => {
   return (
     <PageContent>
       <Container>
-        <h1>Hello</h1>
+        <Typography>Example</Typography>
       </Container>
     </PageContent>
   )
 }
 
-export default Home
+export default Example

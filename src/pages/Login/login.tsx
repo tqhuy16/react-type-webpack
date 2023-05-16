@@ -59,7 +59,7 @@ const Login = (): JSX.Element => {
             </div>
             <span className={styles.actionBox}>
               <Button size='large' type='submit' loading={loading} onClick={onSubmit}>
-                Submit
+                Login
               </Button>
             </span>
 
