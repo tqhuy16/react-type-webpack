@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { PageContent, Loading } from '@/component'
+import { PageContent, Loading, Header } from '@/component'
 
 const DashboardLayout = () => {
   return (
     <>
+      <Header />
       <Suspense
         fallback={
           <PageContent>

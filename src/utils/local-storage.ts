@@ -1,5 +1,9 @@
 const loginStorage = (key: string, value: string) => {
-  window.localStorage.setItem(key, value)
+  localStorage.setItem(key, value)
 }
 
-export { loginStorage }
+const logoutStorage = (key: string) => {
+  localStorage.removeItem(key)
+}
+
+export { loginStorage, logoutStorage }
