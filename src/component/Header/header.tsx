@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Popover } from 'antd'
 import classnames from 'classnames'
 import { useNavigate } from 'react-router-dom'
@@ -6,20 +6,22 @@ import { useNavigate } from 'react-router-dom'
 import { logoutStorage } from '@/utils/local-storage'
 import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
 import { Clickable } from '@/component'
+import { ROUTER_PATH } from '@/constants/common'
+import { MenuContextType, ToggleMenu } from '@/component/DashboardLayout/dashboard-layout'
 import styles from './header.module.scss'
 
 const Header = () => {
   const navigate = useNavigate()
+  const MenuContext = useContext<MenuContextType>(ToggleMenu)
 
   const onLogout = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-
     logoutStorage(LOGIN_ACCESS_TOKEN)
-    navigate('/login')
+    navigate(ROUTER_PATH.LOGIN)
   }
 
   const toggleSideBar = () => {
-    console.log('toogle')
+    MenuContext.setIsOpenMenu(!MenuContext.isOpenMenu)
   }
   return (
     <div className={styles.headerContainer}>

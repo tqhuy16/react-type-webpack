@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import classnames from 'classnames'
 
 import { ROUTER_PATH } from '@/constants/common'
+import { MenuContextType, ToggleMenu } from '@/component/DashboardLayout/dashboard-layout'
 import styles from './sideBar.module.scss'
 
 const MENU_ITEMS = [
@@ -17,8 +18,10 @@ const MENU_ITEMS = [
 ]
 
 const SideBar = (): JSX.Element => {
+  const MenuContext = useContext<MenuContextType>(ToggleMenu)
+
   return (
-    <div className={classnames(styles.wrapSideBar, true && styles.open)}>
+    <div className={classnames(styles.wrapSideBar, MenuContext.isOpenMenu && styles.open)}>
       <div className={styles.surfingBox}>
         <div className={styles.menu}>
           {MENU_ITEMS.map((item, index) => (
