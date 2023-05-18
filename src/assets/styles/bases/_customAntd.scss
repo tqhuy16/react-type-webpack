@@ -1,3 +1,5 @@
+@import '@/assets/styles/bases/variables';
+
 //css for Toast
 .ant-message {
   .ant-message-notice {
@@ -7,7 +9,7 @@
 
       .ant-message-custom-content {
         span {
-          color: white;
+          color: $white;
         }
       }
     }
@@ -18,7 +20,7 @@
 
         .ant-message-custom-content {
           span {
-            color: white;
+            color: $white;
           }
         }
       }
@@ -30,9 +32,27 @@
 
         .ant-message-custom-content {
           span {
-            color: white;
+            color: $white;
           }
         }
+      }
+    }
+  }
+}
+
+.ant-modal-content {
+  .ant-modal-footer {
+    .ant-btn-default,
+    .ant-btn-primary {
+      background-color: $primary;
+      color: $white;
+      border-color: $primary;
+
+      &:hover {
+        opacity: 0.9;
+        color: $white !important;
+        border-color: $primary !important;
+        background-color: $primary !important;
       }
     }
   }
