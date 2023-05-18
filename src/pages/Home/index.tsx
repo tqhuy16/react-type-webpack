@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container, PageContent, Typography, Toast, Button } from '@/component'
+import { Container, PageContent, Toast, Button } from '@/component'
 
 const Home = () => {
   const handleShowToast = () => {

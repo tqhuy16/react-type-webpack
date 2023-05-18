@@ -41,16 +41,10 @@ const Button = ({
       // textcolor={textColor}
       className={classnames(
         size,
-        loading ? styles.loading : '',
-        rounded ? styles.rounded : '',
-        square ? styles.square : '',
-        disabled ? styles.disabled : '',
-        // {
-        //   styles.loading,
-        //   rounded,
-        //   square,
-        //   disabled
-        // },
+        loading && styles.loading,
+        rounded && styles.rounded,
+        square && styles.square,
+        disabled && styles.disabled,
         styles.button,
         className
       )}

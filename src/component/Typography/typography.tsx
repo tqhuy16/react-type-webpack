@@ -2,7 +2,9 @@ import React from 'react'
 import classnames from 'classnames'
 
 import styles from './typography.module.scss'
+
 type TypeSize = 'tiny' | 'small' | 'large' | 'big' | 'huge' | 'giant' | 'enormous'
+
 interface IProps {
   className?: string
   size?: TypeSize
@@ -30,15 +32,13 @@ const Typography = ({
   return (
     <div
       className={classnames(
-        size,
-        {
-          link,
-          underline,
-          primary,
-          secondary,
-          center
-        },
         styles.typography,
+        size && styles[size],
+        link && styles.link,
+        underline && styles.underline,
+        primary && styles.primary,
+        secondary && styles.secondary,
+        center && styles.center,
         className
       )}
       {...rest}

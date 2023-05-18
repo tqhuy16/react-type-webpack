@@ -1,7 +1,10 @@
 import React from 'react'
 
 import { Container, PageContent, Typography } from '@/component'
-import ModalSection from './ModalSection'
+import ModalsSection from './ModalsSection/modals-section'
+import ToastsSection from './ToastsSection/toasts-section'
+import ButtonsSection from './ButtonsSection/buttons-section'
+import TypographiesSection from './TypographiesSection/typographies-section'
 import styles from './example.module.scss'
 
 const Example = () => {
@@ -9,7 +12,10 @@ const Example = () => {
     <PageContent>
       <Container>
         <div className={styles.content}>
-          <ModalSection />
+          <TypographiesSection />
+          <ButtonsSection />
+          <ModalsSection />
+          <ToastsSection />
         </div>
       </Container>
     </PageContent>

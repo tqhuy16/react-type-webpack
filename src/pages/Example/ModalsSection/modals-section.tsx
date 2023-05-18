@@ -1,9 +1,8 @@
 import React, { useRef } from 'react'
 
 import { Button, Modal } from '@/component'
-import styles from './modalSection.module.scss'
 
-const ModalSection = (): JSX.Element => {
+const ModalsSection = (): JSX.Element => {
   const confirmBoxRef = useRef<any>()
   const modalRef = useRef<any>()
 
@@ -11,7 +10,7 @@ const ModalSection = (): JSX.Element => {
     <div className='example-section'>
       <div className='section-title'>Modal</div>
       <div className='section-body'>
-        <div className={styles.wrapButton}>
+        <div className='wrap-button'>
           <Button onClick={() => modalRef.current?.showModal()}>Open Modal</Button>
           <Button onClick={() => confirmBoxRef.current?.showModal()}>Show confirm box</Button>
         </div>
@@ -28,4 +27,4 @@ const ModalSection = (): JSX.Element => {
   )
 }
 
-export default ModalSection
+export default ModalsSection

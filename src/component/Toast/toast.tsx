@@ -1,7 +1,7 @@
 import React from 'react'
 import { message } from 'antd'
 
-type ToastType = 'show' | 'warning' | 'error' | 'duration'
+import { ToastType } from '@/types/global'
 
 const show = (type: 'success' | 'warning' | 'error', text: string, duration: number) => {
   const className = type === 'error' ? 'ant-custom-error' : type === 'warning' ? 'ant-custom-warning' : ''
