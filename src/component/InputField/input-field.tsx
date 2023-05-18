@@ -1,6 +1,6 @@
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { Input } from 'antd'
+import { Input as AntInput } from 'antd'
 import classNames from 'classnames'
 
 import styles from './inputField.module.scss'
@@ -10,9 +10,10 @@ interface IInputFieldProps {
   control: any
   className?: string
   label?: string
+  placeholder?: string
 }
 
-const InputField = ({ name, control, className, label, ...rest }: IInputFieldProps) => {
+const InputField = ({ name, control, className, label, placeholder, ...rest }: IInputFieldProps) => {
   return (
     <div className={styles.wrapInputField}>
       {label && <div className={styles.label}>{label}</div>}
@@ -21,7 +22,12 @@ const InputField = ({ name, control, className, label, ...rest }: IInputFieldPro
         control={control}
         render={({ field, fieldState: { error } }) => (
           <>
-            <Input {...field} />
+            <AntInput
+              status={error?.message && 'error'}
+              {...field}
+              placeholder={placeholder}
+              className={classNames(styles.customInput, className)}
+            />
             {error?.message && <p className='text-error'>{error?.message}</p>}
           </>
         )}

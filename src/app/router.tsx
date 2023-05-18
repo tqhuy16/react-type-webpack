@@ -3,10 +3,10 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 import { PrivateRoute, DashboardLayout, PageContent, Loading } from '@/component'
 
-const Login = lazy(() => import('@/pages/Login/login'))
-const Home = lazy(() => import('@/pages/Home/home'))
-const Example = lazy(() => import('@/pages/Example/example'))
-const NotFound = lazy(() => import('@/pages/NotFound/not-found'))
+const Login = lazy(() => import('@/pages/Login'))
+const Home = lazy(() => import('@/pages/Home'))
+const Example = lazy(() => import('@/pages/Example'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 import { ROUTER_PATH } from '@/constants/common'
 import styles from './router.module.scss'

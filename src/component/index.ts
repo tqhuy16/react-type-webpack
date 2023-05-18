@@ -10,6 +10,7 @@ import Header from './Header/header'
 import Clickable from './Clickable/clickable'
 import SideBar from './SideBar/side-bar'
 import Toast from './Toast/toast'
+import Modal from './ConfirmBox/confirm-box'
 
 export {
   PrivateRoute,
@@ -23,5 +24,6 @@ export {
   Header,
   Clickable,
   SideBar,
-  Toast
+  Toast,
+  Modal
 }

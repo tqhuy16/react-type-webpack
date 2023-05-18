@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -31,7 +31,8 @@ const Login = (): JSX.Element => {
     resolver: yupResolver(validationLogin)
   })
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data, e) => {
+    e?.preventDefault()
     try {
       setLoading(true)
       const { token } = await login(data)
@@ -57,11 +58,11 @@ const Login = (): JSX.Element => {
               <InputField label='Username (admin)' name='userName' control={control} />
               <InputField label='Password (123456)' name='password' control={control} />
             </div>
-            <span className={styles.actionBox}>
-              <Button size='large' type='submit' loading={loading} onClick={onSubmit}>
+            <div className={styles.actionBox}>
+              <Button size='large' type='submit' loading={loading}>
                 Login
               </Button>
-            </span>
+            </div>
 
             {/* <Controller
             name='iceCreamType'

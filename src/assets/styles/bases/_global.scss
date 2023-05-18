@@ -25,42 +25,17 @@ h5 {
   color: red;
 }
 
-.ant-message {
-  .ant-message-notice {
-    .ant-message-notice-content {
-      background-color: #94a716;
-      border-radius: 4px;
+//
+.example-section {
+  .section-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
 
-      .ant-message-custom-content {
-        span {
-          color: white;
-        }
-      }
-    }
-
-    &.ant-custom-error {
-      .ant-message-notice-content {
-        background-color: #ff4d4f;
-
-        .ant-message-custom-content {
-          span {
-            color: white;
-          }
-        }
-      }
-    }
-
-    &.ant-custom-warning {
-      .ant-message-notice-content {
-        background-color: #faad14;
-
-        .ant-message-custom-content {
-          span {
-            color: white;
-          }
-        }
-      }
-    }
+  .section-body {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
   }
 }
 
