@@ -11,6 +11,7 @@ import Clickable from './Clickable/clickable'
 import SideBar from './SideBar/side-bar'
 import Toast from './Toast/toast'
 import Modal from './Modal/modal'
+import Table from './Table/table'
 
 export {
   PrivateRoute,
@@ -25,5 +26,6 @@ export {
   Clickable,
   SideBar,
   Toast,
-  Modal
+  Modal,
+  Table
 }

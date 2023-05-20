@@ -40,6 +40,7 @@
   }
 }
 
+//css for Modal
 .ant-modal-content {
   .ant-modal-footer {
     .ant-btn-default,
@@ -54,6 +55,53 @@
         border-color: $primary !important;
         background-color: $primary !important;
       }
+    }
+  }
+}
+
+//css for Image Table
+.img-table-ant {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-size: cover;
+  background-color: lightgray;
+  border-radius: 50%;
+}
+
+//css for Page Active
+.ant-pagination-item-active {
+  border-color: $primary !important;
+
+  a {
+    color: $primary !important;
+  }
+
+  &:hover {
+    border-color: $primary !important;
+  }
+}
+
+//css for Select Page Size
+.ant-select-selector {
+  &:hover {
+    border-color: $primary !important;
+  }
+}
+
+.ant-select-focused {
+  .ant-select-selector {
+    border-color: $primary !important;
+  }
+}
+
+//css for Jumper To Page
+.ant-pagination-options-quick-jumper {
+  input {
+    &:hover,
+    &:focus {
+      border-color: $primary !important;
     }
   }
 }

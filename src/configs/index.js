@@ -1,3 +1,3 @@
-const Config = { ...window._CONFIG }
+const Configs = { ...window._CONFIG }
 
-export default Config
+export default Configs

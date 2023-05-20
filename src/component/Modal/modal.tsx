@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react'
-import { Modal as ConfirmModal } from 'antd'
+import { Modal as AntdModal } from 'antd'
 
 interface IModalProps {
   children: React.ReactNode
@@ -37,11 +37,11 @@ const Modal = forwardRef(
     }
 
     return !isConfirm ? (
-      <ConfirmModal title={title} open={open} onCancel={handleCancel} footer={null}>
+      <AntdModal title={title} open={open} onCancel={handleCancel} footer={null}>
         {children}
-      </ConfirmModal>
+      </AntdModal>
     ) : (
-      <ConfirmModal
+      <AntdModal
         title={title}
         open={open}
         confirmLoading={confirmLoading}
@@ -51,7 +51,7 @@ const Modal = forwardRef(
         cancelText={cancelText}
       >
         {children}
-      </ConfirmModal>
+      </AntdModal>
     )
   }
 )
