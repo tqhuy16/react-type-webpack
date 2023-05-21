@@ -16,6 +16,7 @@ interface ITableProps {
   showSizeChanger?: boolean
   hideOnSinglePage?: boolean
   showQuickJumper?: boolean
+  title?: string
   data?: ITableDataType[]
 }
 
@@ -29,6 +30,7 @@ const Table = ({
   showSizeChanger = false,
   hideOnSinglePage = false,
   showQuickJumper = false,
+  title = '',
   data
 }: ITableProps) => {
   const onChange: TableProps<ITableDataType>['onChange'] = (pagination, filters, sorter, extra) => {
@@ -41,6 +43,7 @@ const Table = ({
       loading={loading}
       bordered={bordered}
       dataSource={data}
+      title={() => title && title}
       onChange={onChange}
       pagination={{
         position: [

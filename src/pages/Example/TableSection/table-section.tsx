@@ -78,6 +78,7 @@ const TableSection = () => {
           showSizeChanger
           showQuickJumper
           paginationPositionBottom='bottomRight'
+          title='This Is Header'
         />
       </div>
     </div>
