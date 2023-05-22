@@ -1,6 +1,6 @@
-import React, { useState, FormEvent } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { loginStorage } from '@/utils/local-storage'
@@ -56,28 +56,13 @@ const Login = (): JSX.Element => {
             <p className={styles.title}>LOGIN</p>
             <div className={styles.fieldGroup}>
               <InputField label='Username (admin)' name='userName' control={control} />
-              <InputField label='Password (123456)' name='password' control={control} />
+              <InputField label='Password (123456)' name='password' control={control} isPassWord />
             </div>
             <div className={styles.actionBox}>
               <Button size='large' type='submit' loading={loading}>
                 Login
               </Button>
             </div>
-
-            {/* <Controller
-            name='iceCreamType'
-            control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={[
-                  { value: 'chocolate', label: 'Chocolate' },
-                  { value: 'strawberry', label: 'Strawberry' },
-                  { value: 'vanilla', label: 'Vanilla' }
-                ]}
-              />
-            )}
-          /> */}
           </form>
         </div>
       </Container>

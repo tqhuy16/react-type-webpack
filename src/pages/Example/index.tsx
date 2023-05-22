@@ -6,6 +6,7 @@ import ButtonsSection from './ButtonsSection/buttons-section'
 import TableSection from './TableSection/table-section'
 import ModalsSection from './ModalsSection/modals-section'
 import ToastsSection from './ToastsSection/toasts-section'
+import FormSection from './FormSection/form-section'
 
 import styles from './example.module.scss'
 
@@ -16,6 +17,7 @@ const Example = () => {
         <div className={styles.content}>
           <TypographiesSection />
           <ButtonsSection />
+          <FormSection />
           <TableSection />
           <ModalsSection />
           <ToastsSection />

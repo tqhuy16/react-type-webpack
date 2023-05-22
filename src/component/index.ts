@@ -12,6 +12,7 @@ import SideBar from './SideBar/side-bar'
 import Toast from './Toast/toast'
 import Modal from './Modal/modal'
 import Table from './Table/table'
+import Radio from './Radio/radio'
 
 export {
   PrivateRoute,
@@ -27,5 +28,6 @@ export {
   SideBar,
   Toast,
   Modal,
-  Table
+  Table,
+  Radio
 }

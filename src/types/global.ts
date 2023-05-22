@@ -12,4 +12,9 @@ type TablePaginationPositionTop = 'topLeft' | 'topCenter' | 'topRight'
 
 type TablePaginationPositionBottom = 'bottomLeft' | 'bottomCenter' | 'bottomRight'
 
-export type { ToastType, ITableDataType, TablePaginationPositionTop, TablePaginationPositionBottom }
+type Option = {
+  name: string
+  value: any
+}
+
+export type { ToastType, ITableDataType, TablePaginationPositionTop, TablePaginationPositionBottom, Option }

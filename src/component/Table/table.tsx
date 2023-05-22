@@ -39,6 +39,7 @@ const Table = ({
 
   return (
     <AntdTable
+      rowKey={(data) => data.id}
       columns={columns}
       loading={loading}
       bordered={bordered}
