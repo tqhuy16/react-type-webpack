@@ -12,9 +12,21 @@ type TablePaginationPositionTop = 'topLeft' | 'topCenter' | 'topRight'
 
 type TablePaginationPositionBottom = 'bottomLeft' | 'bottomCenter' | 'bottomRight'
 
-type Option = {
-  name: string
+type RadioOption = {
+  label: string
   value: any
 }
 
-export type { ToastType, ITableDataType, TablePaginationPositionTop, TablePaginationPositionBottom, Option }
+type SelectOption = {
+  label: string
+  value: string
+}
+
+export type {
+  ToastType,
+  ITableDataType,
+  TablePaginationPositionTop,
+  TablePaginationPositionBottom,
+  RadioOption,
+  SelectOption
+}

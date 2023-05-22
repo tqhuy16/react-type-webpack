@@ -3,8 +3,9 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { exampleFormValidation } from '@/shared/validation/example-form-validation'
-import { Button, InputField, Radio } from '@/component'
-import { OPTIONS_GENDER } from '@/shared/fake/data-global'
+import { Button, DatePicker, InputField, Radio, Select } from '@/component'
+import { OPTIONS_GENDER, SELECT_POSITIONS } from '@/shared/fake/data-global'
+import { DATE_FORMAT_LIST } from '@/constants/common'
 import styles from './formSection.module.scss'
 
 const initialValues = {
@@ -12,7 +13,11 @@ const initialValues = {
   lastName: '',
   firstAddress: '',
   secondAddress: '',
-  gender: OPTIONS_GENDER[0].value
+  gender: undefined,
+  dateOfBirth: '',
+  phone: '',
+  email: '',
+  position: ''
 }
 
 interface IFormInput {
@@ -21,6 +26,10 @@ interface IFormInput {
   firstAddress: string
   secondAddress: string
   gender: number
+  dateOfBirth: string
+  phone: string
+  email: string
+  position: string
 }
 
 const FormSection = () => {
@@ -64,13 +73,41 @@ const FormSection = () => {
               <div className={styles.fieldGroup}>
                 <Radio label='Gender' name='gender' control={control} options={OPTIONS_GENDER} />
               </div>
+              <div className={styles.fieldGroup}>
+                <DatePicker
+                  placeholder={DATE_FORMAT_LIST[0]}
+                  label='Date of Birth'
+                  name='dateOfBirth'
+                  control={control}
+                />
+              </div>
             </div>
 
-            <div className={styles.actionBox}>
-              <Button size='large' type='submit' loading={isLoading}>
-                Login
-              </Button>
+            <div className={styles.wrapFieldGroup}>
+              <div className={styles.fieldGroup}>
+                <InputField label='Phone' name='phone' control={control} />
+              </div>
+              <div className={styles.fieldGroup}>
+                <InputField label='Email' name='email' control={control} placeholder='example@gmail.com' />
+              </div>
             </div>
+
+            <div className={styles.wrapFieldGroup}>
+              <div className={styles.fieldGroup}>
+                <Select
+                  label='Position'
+                  name='position'
+                  control={control}
+                  options={SELECT_POSITIONS}
+                  placeholder='Please select an option'
+                />
+              </div>
+              <div className={styles.fieldGroup}></div>
+            </div>
+
+            <Button size='large' type='submit' loading={isLoading}>
+              Login
+            </Button>
           </form>
         </div>
       </div>

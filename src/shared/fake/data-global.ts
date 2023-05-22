@@ -1,16 +1,31 @@
 const OPTIONS_GENDER = [
   {
-    name: 'Male',
+    label: 'Male',
     value: 1
   },
   {
-    name: 'Female',
+    label: 'Female',
     value: 2
   },
   {
-    name: 'Other',
+    label: 'Other',
     value: 3
   }
 ]
 
-export { OPTIONS_GENDER }
+const SELECT_POSITIONS = [
+  {
+    label: 'Developer',
+    value: 'developer'
+  },
+  {
+    label: 'PM',
+    value: 'pm'
+  },
+  {
+    label: 'Leader',
+    value: 'leader'
+  }
+]
+
+export { OPTIONS_GENDER, SELECT_POSITIONS }

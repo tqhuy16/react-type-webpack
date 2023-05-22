@@ -120,6 +120,58 @@
   }
 }
 
+//css for Select
+
+//css for DatePicker
+.ant-space {
+  width: 100%;
+
+  .ant-space-item {
+    .ant-picker {
+      width: 100%;
+
+      &:hover {
+        border-color: $primary !important;
+      }
+
+      &.ant-picker-focused {
+        border-color: $primary !important;
+      }
+    }
+  }
+}
+
+.ant-picker-header {
+  .ant-picker-month-btn,
+  .ant-picker-year-btn {
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+
+.ant-picker-body {
+  .ant-picker-cell {
+    .ant-picker-cell-inner {
+      &::before {
+        border-color: $primary !important;
+      }
+    }
+
+    &.ant-picker-cell-selected {
+      .ant-picker-cell-inner {
+        background: $primary !important;
+      }
+    }
+  }
+}
+
+.ant-picker-footer {
+  .ant-picker-today-btn {
+    color: $primary !important;
+  }
+}
+
 //css for Jumper To Page
 .ant-pagination-options-quick-jumper {
   input {

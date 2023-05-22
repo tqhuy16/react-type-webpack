@@ -13,6 +13,8 @@ import Toast from './Toast/toast'
 import Modal from './Modal/modal'
 import Table from './Table/table'
 import Radio from './Radio/radio'
+import Select from './Select/select'
+import DatePicker from './DatePicker/date-picker'
 
 export {
   PrivateRoute,
@@ -29,5 +31,7 @@ export {
   Toast,
   Modal,
   Table,
-  Radio
+  Radio,
+  Select,
+  DatePicker
 }

@@ -1,11 +1,15 @@
 import * as yup from 'yup'
 
 const exampleFormValidation = yup.object().shape({
-  firstName: yup.string().required('required'),
-  lastName: yup.string().required('required'),
-  firstAddress: yup.string().required('required'),
-  secondAddress: yup.string().required('required')
-  // gender: yup.string().required('required')
+  firstName: yup.string(),
+  lastName: yup.string(),
+  firstAddress: yup.string(),
+  secondAddress: yup.string(),
+  // gender: yup.string().required('required'),
+  dateTime: yup.string(),
+  phone: yup.string(),
+  email: yup.string().required('required').email('email is not correct'),
+  position: yup.string()
 })
 
 export { exampleFormValidation }
