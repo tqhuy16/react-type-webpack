@@ -15,6 +15,9 @@ import Table from './Table/table'
 import Radio from './Radio/radio'
 import Select from './Select/select'
 import DatePicker from './DatePicker/date-picker'
+import TextArea from './TextArea/text-area'
+import UploadImage from './UploadImage/upload-image'
+import Checkbox from './Checkbox/check-box'
 
 export {
   PrivateRoute,
@@ -33,5 +36,8 @@ export {
   Table,
   Radio,
   Select,
-  DatePicker
+  DatePicker,
+  TextArea,
+  UploadImage,
+  Checkbox
 }

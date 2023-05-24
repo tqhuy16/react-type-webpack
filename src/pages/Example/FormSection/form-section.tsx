@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import type { UploadFile } from 'antd/es/upload/interface'
 
 import { exampleFormValidation } from '@/shared/validation/example-form-validation'
-import { Button, DatePicker, InputField, Radio, Select } from '@/component'
-import { OPTIONS_GENDER, SELECT_POSITIONS } from '@/shared/fake/data-global'
+import { Button, Checkbox, DatePicker, InputField, Radio, Select, TextArea, UploadImage } from '@/component'
+import { OPTIONS_GENDER, SELECT_POSITIONS, CHECKBOX_OPTIONS } from '@/shared/fake/data-global'
 import { DATE_FORMAT_LIST } from '@/constants/common'
 import styles from './formSection.module.scss'
 
@@ -14,10 +15,13 @@ const initialValues = {
   firstAddress: '',
   secondAddress: '',
   gender: undefined,
-  dateOfBirth: '',
+  checkbox: undefined,
   phone: '',
   email: '',
-  position: ''
+  position: '',
+  dateOfBirth: '',
+  description: '',
+  avatar: undefined
 }
 
 interface IFormInput {
@@ -26,10 +30,13 @@ interface IFormInput {
   firstAddress: string
   secondAddress: string
   gender: number
-  dateOfBirth: string
+  checkbox: string[]
   phone: string
   email: string
   position: string
+  dateOfBirth: string
+  description: string
+  avatar: UploadFile[]
 }
 
 const FormSection = () => {
@@ -74,12 +81,7 @@ const FormSection = () => {
                 <Radio label='Gender' name='gender' control={control} options={OPTIONS_GENDER} />
               </div>
               <div className={styles.fieldGroup}>
-                <DatePicker
-                  placeholder={DATE_FORMAT_LIST[0]}
-                  label='Date of Birth'
-                  name='dateOfBirth'
-                  control={control}
-                />
+                <Checkbox label='Checkbox' name='checkbox' control={control} options={CHECKBOX_OPTIONS} />
               </div>
             </div>
 
@@ -102,7 +104,24 @@ const FormSection = () => {
                   placeholder='Please select an option'
                 />
               </div>
-              <div className={styles.fieldGroup}></div>
+              <div className={styles.fieldGroup}>
+                <DatePicker
+                  placeholder={DATE_FORMAT_LIST[0]}
+                  label='Date of Birth'
+                  name='dateOfBirth'
+                  control={control}
+                />
+              </div>
+            </div>
+            <div className={styles.wrapFieldGroup}>
+              <div className={styles.fieldGroup}>
+                <TextArea label='Description' name='description' control={control} rows={4} placeholder='Text Area' />
+              </div>
+            </div>
+            <div className={styles.wrapFieldGroup}>
+              <div className={styles.fieldGroup}>
+                <UploadImage label='Avatar' name='avatar' control={control} />
+              </div>
             </div>
 
             <Button size='large' type='submit' loading={isLoading}>

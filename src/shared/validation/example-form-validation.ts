@@ -6,10 +6,14 @@ const exampleFormValidation = yup.object().shape({
   firstAddress: yup.string(),
   secondAddress: yup.string(),
   // gender: yup.string().required('required'),
-  dateTime: yup.string(),
+  // checkbox: yup.array().min(1, 'minimum 1 item').required('required'),
   phone: yup.string(),
-  email: yup.string().required('required').email('email is not correct'),
-  position: yup.string()
+  // email: yup.string().required('required').email('email is not correct'),
+  email: yup.string(),
+  position: yup.string(),
+  dateOfBirth: yup.string(),
+  description: yup.string()
+  // avatar: ,
 })
 
 export { exampleFormValidation }
