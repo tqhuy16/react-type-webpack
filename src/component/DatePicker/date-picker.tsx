@@ -9,12 +9,18 @@ interface IDatePickerProps {
   control: any
   label?: string
   placeholder?: string
+  isRequired?: boolean
 }
 
-const DatePicker = ({ name, control, label, placeholder, ...rest }: IDatePickerProps) => {
+const DatePicker = ({ name, control, label, placeholder, isRequired = false, ...rest }: IDatePickerProps) => {
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         control={control}
         name={name}

@@ -24,6 +24,13 @@ h5 {
   color: red;
 }
 
+.required-field {
+  position: relative;
+  color: $red-100;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
 // Example Page
 .example-section {
   margin-bottom: 40px;

@@ -12,14 +12,29 @@ interface ITextAreaProps {
   className?: string
   placeholder?: string
   rows?: number
+  isRequired?: boolean
 }
 
 const { TextArea: AntdTextArea } = AntInput
 
-const TextArea = ({ name, control, label, className, placeholder, rows, ...rest }: ITextAreaProps) => {
+const TextArea = ({
+  name,
+  control,
+  label,
+  className,
+  placeholder,
+  rows,
+  isRequired = false,
+  ...rest
+}: ITextAreaProps) => {
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         name={name}
         control={control}

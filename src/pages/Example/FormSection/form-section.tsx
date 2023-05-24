@@ -67,21 +67,27 @@ const FormSection = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.wrapFieldGroup}>
               <div className={styles.fieldGroup}>
-                <InputField label='First Name' name='firstName' control={control} placeholder='First Name' />
-                <InputField label='LastName' name='lastName' control={control} placeholder='Last Name' />
+                <InputField isRequired label='First Name' name='firstName' control={control} placeholder='First Name' />
+                <InputField isRequired label='LastName' name='lastName' control={control} placeholder='Last Name' />
               </div>
               <div className={styles.fieldGroup}>
-                <InputField label='Address 1' name='firstAddress' control={control} placeholder='Address 1' />
+                <InputField
+                  isRequired
+                  label='Address 1'
+                  name='firstAddress'
+                  control={control}
+                  placeholder='Address 1'
+                />
                 <InputField label='Address 2' name='secondAddress' control={control} placeholder='Address 1' />
               </div>
             </div>
 
             <div className={styles.wrapFieldGroup}>
               <div className={styles.fieldGroup}>
-                <Radio label='Gender' name='gender' control={control} options={OPTIONS_GENDER} />
+                <Radio isRequired label='Gender' name='gender' control={control} options={OPTIONS_GENDER} />
               </div>
               <div className={styles.fieldGroup}>
-                <Checkbox label='Checkbox' name='checkbox' control={control} options={CHECKBOX_OPTIONS} />
+                <Checkbox isRequired label='Checkbox' name='checkbox' control={control} options={CHECKBOX_OPTIONS} />
               </div>
             </div>
 
@@ -90,13 +96,14 @@ const FormSection = () => {
                 <InputField label='Phone' name='phone' control={control} />
               </div>
               <div className={styles.fieldGroup}>
-                <InputField label='Email' name='email' control={control} placeholder='example@gmail.com' />
+                <InputField isRequired label='Email' name='email' control={control} placeholder='example@gmail.com' />
               </div>
             </div>
 
             <div className={styles.wrapFieldGroup}>
               <div className={styles.fieldGroup}>
                 <Select
+                  isRequired
                   label='Position'
                   name='position'
                   control={control}
@@ -106,6 +113,7 @@ const FormSection = () => {
               </div>
               <div className={styles.fieldGroup}>
                 <DatePicker
+                  isRequired
                   placeholder={DATE_FORMAT_LIST[0]}
                   label='Date of Birth'
                   name='dateOfBirth'
@@ -115,7 +123,14 @@ const FormSection = () => {
             </div>
             <div className={styles.wrapFieldGroup}>
               <div className={styles.fieldGroup}>
-                <TextArea label='Description' name='description' control={control} rows={4} placeholder='Text Area' />
+                <TextArea
+                  isRequired
+                  label='Description'
+                  name='description'
+                  control={control}
+                  rows={4}
+                  placeholder='TextArea'
+                />
               </div>
             </div>
             <div className={styles.wrapFieldGroup}>

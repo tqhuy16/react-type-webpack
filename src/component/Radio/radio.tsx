@@ -11,12 +11,18 @@ interface IRadioProps {
   name: string
   control: any
   label?: string
+  isRequired?: boolean
 }
 
-const Radio = ({ options, name, control, label, ...rest }: IRadioProps) => {
+const Radio = ({ options, name, control, label, isRequired = false, ...rest }: IRadioProps) => {
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         control={control}
         name={name}

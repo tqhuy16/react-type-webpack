@@ -11,12 +11,18 @@ interface ISelectProps {
   control: any
   label?: string
   placeholder?: string
+  isRequired?: boolean
 }
 
-const Select = ({ options, name, control, label, placeholder, ...rest }: ISelectProps) => {
+const Select = ({ options, name, control, label, placeholder, isRequired = false, ...rest }: ISelectProps) => {
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         control={control}
         name={name}

@@ -4,7 +4,7 @@
 .ant-message {
   .ant-message-notice {
     .ant-message-notice-content {
-      background-color: #94a716;
+      background-color: $yellow-200;
       border-radius: 4px;
 
       .ant-message-custom-content {
@@ -16,7 +16,7 @@
 
     &.ant-custom-error {
       .ant-message-notice-content {
-        background-color: #ff4d4f;
+        background-color: $red-100;
 
         .ant-message-custom-content {
           span {
@@ -28,7 +28,7 @@
 
     &.ant-custom-warning {
       .ant-message-notice-content {
-        background-color: #faad14;
+        background-color: $orange-200;
 
         .ant-message-custom-content {
           span {
@@ -110,14 +110,6 @@
       background-color: $primary !important;
     }
   }
-
-  .ant-radio {
-    .ant-radio-inner {
-      &:hover {
-        border-color: $primary !important;
-      }
-    }
-  }
 }
 
 //css for Select
@@ -169,6 +161,22 @@
 .ant-picker-footer {
   .ant-picker-today-btn {
     color: $primary !important;
+  }
+}
+
+//css for Checkbox
+.ant-checkbox-wrapper {
+  &:hover {
+    .ant-checkbox-inner {
+      border-color: $primary !important;
+    }
+  }
+
+  .ant-checkbox-checked {
+    .ant-checkbox-inner {
+      background-color: $primary !important;
+      border-color: $primary !important;
+    }
   }
 }
 

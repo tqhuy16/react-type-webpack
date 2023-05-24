@@ -12,6 +12,7 @@ interface IInputFieldProps {
   className?: string
   label?: string
   placeholder?: string
+  isRequired?: boolean
 }
 
 const InputField = ({
@@ -21,11 +22,17 @@ const InputField = ({
   className,
   label,
   placeholder,
+  isRequired = false,
   ...rest
 }: IInputFieldProps) => {
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         name={name}
         control={control}

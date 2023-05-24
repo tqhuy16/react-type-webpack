@@ -10,12 +10,18 @@ interface ICheckboxProps {
   options: string[]
   label?: string
   className?: string
+  isRequired?: boolean
 }
 
-const Checkbox = ({ name, control, options, label, className, ...rest }: ICheckboxProps) => {
+const Checkbox = ({ name, control, options, label, className, isRequired = false, ...rest }: ICheckboxProps) => {
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         name={name}
         control={control}
