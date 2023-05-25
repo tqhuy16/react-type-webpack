@@ -11,7 +11,6 @@ const Home = () => {
     <PageContent>
       <Container>
         <h1>Hello</h1>
-        <Button onClick={handleShowToast}>Toast</Button>
       </Container>
     </PageContent>
   )

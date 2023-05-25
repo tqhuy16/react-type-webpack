@@ -6,6 +6,7 @@ import { PrivateRoute, DashboardLayout, PageContent, Loading } from '@/component
 const Login = lazy(() => import('@/pages/Login'))
 const Home = lazy(() => import('@/pages/Home'))
 const Example = lazy(() => import('@/pages/Example'))
+const Redux = lazy(() => import('@/pages/Redux'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 import { ROUTER_PATH } from '@/constants/common'
@@ -35,6 +36,7 @@ const RoutesComponent = () => {
               {/* Pages need login to access should put in here */}
               <Route index element={<Home />} />
               <Route path={ROUTER_PATH.EXAMPLE} element={<Example />} />
+              <Route path={ROUTER_PATH.REDUX} element={<Redux />} />
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>

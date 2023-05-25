@@ -4,18 +4,8 @@ import classnames from 'classnames'
 
 import { ROUTER_PATH } from '@/constants/common'
 import { MenuContextType, ToggleMenu } from '@/component/DashboardLayout/dashboard-layout'
+import { MENU_ITEMS } from '@/constants/common'
 import styles from './sideBar.module.scss'
-
-const MENU_ITEMS = [
-  {
-    link: `${ROUTER_PATH.HOME}`,
-    name: 'Home'
-  },
-  {
-    link: `${ROUTER_PATH.EXAMPLE}`,
-    name: 'Examples'
-  }
-]
 
 const SideBar = (): JSX.Element => {
   const MenuContext = useContext<MenuContextType>(ToggleMenu)
