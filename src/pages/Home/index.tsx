@@ -1,16 +1,13 @@
 import React from 'react'
 
-import { Container, PageContent, Toast, Button } from '@/component'
+import { Container, PageContent, Toast, Button, Loading } from '@/component'
 
 const Home = () => {
-  const handleShowToast = () => {
-    Toast('error', 'this is an error toast')
-  }
-
   return (
     <PageContent>
       <Container>
         <h1>Hello</h1>
+        <Loading />
       </Container>
     </PageContent>
   )

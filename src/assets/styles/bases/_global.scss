@@ -1,3 +1,5 @@
+@import '@/assets/styles/bases/effect';
+
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
@@ -12,6 +14,52 @@ h3,
 h4,
 h5 {
   margin: 0;
+}
+
+.preloading {
+  background: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  .circle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    &::after {
+      content: '';
+      background-color: #388e3c;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      animation: rotate 2s infinite;
+    }
+
+    &::before {
+      content: '';
+      background-color: #388e3c;
+      opacity: 0.5;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      animation: revert-rotate 2s infinite;
+    }
+  }
 }
 
 .application {
