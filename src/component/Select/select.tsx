@@ -1,20 +1,28 @@
 import React from 'react'
-import { Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 import { Select as AntdSelect } from 'antd'
 
 import { SelectOption } from '@/types/global'
 import styles from './select.module.scss'
 
-interface ISelectProps {
+interface ISelectProps<T extends FieldValues> {
   options: SelectOption[]
-  name: string
-  control: any
+  name: Path<T>
+  control: Control<T>
   label?: string
   placeholder?: string
   isRequired?: boolean
 }
 
-const Select = ({ options, name, control, label, placeholder, isRequired = false, ...rest }: ISelectProps) => {
+const Select = <T extends FieldValues>({
+  options,
+  name,
+  control,
+  label,
+  placeholder,
+  isRequired = false,
+  ...rest
+}: ISelectProps<T>) => {
   return (
     <>
       {label && (

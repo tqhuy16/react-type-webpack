@@ -1,13 +1,13 @@
 import React from 'react'
 import { Input as AntInput } from 'antd'
-import { Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 
 import styles from './textArea.module.scss'
 import classNames from 'classnames'
 
-interface ITextAreaProps {
-  name: string
-  control: any
+interface ITextAreaProps<T extends FieldValues> {
+  name: Path<T>
+  control: Control<T>
   label?: string
   className?: string
   placeholder?: string
@@ -17,7 +17,7 @@ interface ITextAreaProps {
 
 const { TextArea: AntdTextArea } = AntInput
 
-const TextArea = ({
+const TextArea = <T extends FieldValues>({
   name,
   control,
   label,
@@ -26,7 +26,7 @@ const TextArea = ({
   rows,
   isRequired = false,
   ...rest
-}: ITextAreaProps) => {
+}: ITextAreaProps<T>) => {
   return (
     <>
       {label && (

@@ -14,7 +14,7 @@ type TablePaginationPositionBottom = 'bottomLeft' | 'bottomCenter' | 'bottomRigh
 
 type RadioOption = {
   label: string
-  value: any
+  value: number
 }
 
 type SelectOption = {

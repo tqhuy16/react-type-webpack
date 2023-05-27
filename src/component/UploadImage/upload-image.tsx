@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { Upload } from 'antd'
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface'
-import { Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 
 import styles from './uploadImage.module.scss'
 
-interface IUploadImageProps {
-  name: string
-  control: any
+interface IUploadImageProps<T extends FieldValues> {
+  name: Path<T>
+  control: Control<T>
   label?: string
   className?: string
 }
 
-const UploadImage = ({ name, control, label, className, ...rest }: IUploadImageProps) => {
+const UploadImage = <T extends FieldValues>({ name, control, label, className, ...rest }: IUploadImageProps<T>) => {
   const [fileList, setFileList] = useState<UploadFile[]>([])
 
   const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {

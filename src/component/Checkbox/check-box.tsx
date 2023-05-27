@@ -1,19 +1,27 @@
 import React from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, FieldValues, Control, Path } from 'react-hook-form'
 import { Checkbox as AntdCheckbox } from 'antd'
 
 import styles from './checkbox.module.scss'
 
-interface ICheckboxProps {
-  name: string
-  control: any
+interface ICheckboxProps<T extends FieldValues> {
+  name: Path<T>
+  control: Control<T>
   options: string[]
   label?: string
   className?: string
   isRequired?: boolean
 }
 
-const Checkbox = ({ name, control, options, label, className, isRequired = false, ...rest }: ICheckboxProps) => {
+const Checkbox = <T extends FieldValues>({
+  name,
+  control,
+  options,
+  label,
+  className,
+  isRequired = false,
+  ...rest
+}: ICheckboxProps<T>) => {
   return (
     <>
       {label && (

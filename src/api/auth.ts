@@ -1,7 +1,12 @@
 import mockData from '@/utils/mock-api'
 
-const login = (payload: any): Promise<any> => {
-  if (payload.userName === 'admin' && payload.password === '123456') {
+interface ILogin {
+  userName: string
+  password: string
+}
+
+const login = ({ userName, password }: ILogin): Promise<any> => {
+  if (userName === 'admin' && password === '123456') {
     return mockData({
       data: {
         token: 'SH6643HDHJSGFJSD73475674856'

@@ -1,20 +1,27 @@
 import React from 'react'
-import { Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 import type { RadioChangeEvent } from 'antd'
 import { Radio as AntdRadio } from 'antd'
 
 import { RadioOption } from '@/types/global'
 import styles from './radio.module.scss'
 
-interface IRadioProps {
+interface IRadioProps<T extends FieldValues> {
   options: RadioOption[]
-  name: string
-  control: any
+  name: Path<T>
+  control: Control<T>
   label?: string
   isRequired?: boolean
 }
 
-const Radio = ({ options, name, control, label, isRequired = false, ...rest }: IRadioProps) => {
+const Radio = <T extends FieldValues>({
+  options,
+  name,
+  control,
+  label,
+  isRequired = false,
+  ...rest
+}: IRadioProps<T>) => {
   return (
     <>
       {label && (

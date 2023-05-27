@@ -1,13 +1,13 @@
 import React from 'react'
-import { Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 import { Input as AntInput } from 'antd'
 import classNames from 'classnames'
 
 import styles from './inputField.module.scss'
 
-interface IInputFieldProps {
-  name: string
-  control: any
+interface IInputFieldProps<T extends FieldValues> {
+  name: Path<T>
+  control: Control<T>
   isPassWord?: boolean
   className?: string
   label?: string
@@ -15,7 +15,7 @@ interface IInputFieldProps {
   isRequired?: boolean
 }
 
-const InputField = ({
+const InputField = <T extends FieldValues>({
   name,
   control,
   isPassWord = false,
@@ -24,7 +24,7 @@ const InputField = ({
   placeholder,
   isRequired = false,
   ...rest
-}: IInputFieldProps) => {
+}: IInputFieldProps<T>) => {
   return (
     <>
       {label && (

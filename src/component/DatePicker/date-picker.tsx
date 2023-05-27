@@ -1,18 +1,25 @@
 import React from 'react'
 import { DatePicker as AntdDatePicker, Space } from 'antd'
-import { Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 
 import styles from './datePicker.module.scss'
 
-interface IDatePickerProps {
-  name: string
-  control: any
+interface IDatePickerProps<T extends FieldValues> {
+  name: Path<T>
+  control: Control<T>
   label?: string
   placeholder?: string
   isRequired?: boolean
 }
 
-const DatePicker = ({ name, control, label, placeholder, isRequired = false, ...rest }: IDatePickerProps) => {
+const DatePicker = <T extends FieldValues>({
+  name,
+  control,
+  label,
+  placeholder,
+  isRequired = false,
+  ...rest
+}: IDatePickerProps<T>) => {
   return (
     <>
       {label && (
