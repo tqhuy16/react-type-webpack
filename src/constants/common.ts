@@ -11,18 +11,20 @@ const ROUTER_PATH = {
 const MENU_ITEMS = [
   {
     link: `${ROUTER_PATH.HOME}`,
-    name: 'Home'
+    name: 'home'
   },
   {
     link: `${ROUTER_PATH.EXAMPLE}`,
-    name: 'Examples'
+    name: 'examples'
   },
   {
     link: `${ROUTER_PATH.REDUX}`,
-    name: 'Redux'
+    name: 'redux'
   }
 ]
 
+const LANGUAGE_ITEMS = ['en', 'vi']
+
 const DATE_FORMAT_LIST = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY']
 
-export { ROUTER_PATH, MENU_ITEMS, DATE_FORMAT_LIST }
+export { ROUTER_PATH, MENU_ITEMS, LANGUAGE_ITEMS, DATE_FORMAT_LIST }

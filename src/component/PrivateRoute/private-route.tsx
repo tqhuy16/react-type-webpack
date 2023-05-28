@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
+import { LOGIN_ACCESS_TOKEN } from '@/constants/key-storage'
 import { ROUTER_PATH } from '@/constants/common'
 
 interface PrivateRouteProps {

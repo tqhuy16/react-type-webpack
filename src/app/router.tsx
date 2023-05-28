@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
+import '@/translations/i18n'
 import { PrivateRoute, DashboardLayout, PageContent, Loading } from '@/component'
 
 const Login = lazy(() => import('@/pages/Login'))

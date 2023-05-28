@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { loginStorage } from '@/utils/local-storage'
+import { loginStorage } from '@/utils/authenticated-storage'
 import { login } from '@/api/auth'
-import { LOGIN_ACCESS_TOKEN } from '@/constants/login'
+import { LOGIN_ACCESS_TOKEN } from '@/constants/key-storage'
 import { Button, Container, PageContent, InputField, Toast } from '@/component'
 import { validationLogin } from '@/shared/validation/login-validation'
 
