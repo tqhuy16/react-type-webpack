@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Upload } from 'antd'
-import type { RcFile, UploadChangeParam, UploadFile, UploadProps } from 'antd/es/upload/interface'
+import React, { useEffect, useState } from 'react'
 import { Control, Controller, FieldValues, Path } from 'react-hook-form'
+import { isEqual } from 'lodash'
 
+import { FileUploadType } from '@/types/global'
 import styles from './uploadImage.module.scss'
 
 interface IUploadImageProps<T extends FieldValues> {
@@ -10,7 +10,10 @@ interface IUploadImageProps<T extends FieldValues> {
   control: Control<T>
   label?: string
   className?: string
-  maxCount?: number
+  maxFiles?: number
+  isRequired?: boolean
+  accept?: string
+  value?: FileUploadType[]
 }
 
 const UploadImage = <T extends FieldValues>({
@@ -18,65 +21,84 @@ const UploadImage = <T extends FieldValues>({
   control,
   label,
   className,
-  maxCount = 3,
+  maxFiles = 1,
+  isRequired = false,
+  accept = 'image/gif, image/png, image/jpeg',
+  value,
   ...rest
 }: IUploadImageProps<T>) => {
-  const [fileList, setFileList] = useState<UploadFile[]>([])
+  const [images, setImages] = useState<FileUploadType[]>(value || [])
 
-  // const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
-  //   console.log('newFileList', newFileList)
-  //   setFileList(newFileList)
-  // }
+  const handleImageChange = (filesReceived: File[]) => {
+    const [...uploadedFiles] = filesReceived
+    const filesUploaded: FileUploadType[] = uploadedFiles.map((file) => {
+      const newFile: FileUploadType = {
+        urlPreview: window.URL.createObjectURL(file),
+        name: file.name,
+        file
+      }
 
-  // const propsImage: UploadProps = {
-  //   onRemove: (file) => {
-  //     const index = fileList.indexOf(file)
-  //     const newFileList = fileList.slice()
-  //     newFileList.splice(index, 1)
-  //     setFileList(newFileList)
-  //   },
-  //   beforeUpload: (file) => {
-  //     setFileList([...fileList, file])
+      return newFile
+    })
 
-  //     return false
-  //   },
-  //   fileList
-  // }
+    const allFiles = [...images, ...filesUploaded]
 
-  const onPreview = async (file: UploadFile) => {
-    let src = file.url as string
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file.originFileObj as RcFile)
-        reader.onload = () => resolve(reader.result as string)
-      })
-    }
-    const image = new Image()
-    image.src = src
-    const imgWindow = window.open(src)
-    imgWindow?.document.write(image.outerHTML)
+    if (allFiles.length > maxFiles) return
+
+    const filesLimit = [...images, ...filesUploaded].splice(0, maxFiles)
+
+    setImages(filesLimit)
+  }
+
+  console.log('images', images)
+
+  const handleDeleteImage = (indexImage: number) => {
+    const newFiles = images.filter((_, index) => index !== indexImage)
+    setImages(newFiles)
   }
 
   return (
     <>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && (
+        <div className={styles.label}>
+          {label}
+          {isRequired && <span className='required-field'>*</span>}
+        </div>
+      )}
       <Controller
         name={name}
         control={control}
-        render={({ field: { value, onChange } }) => (
-          <Upload
-            // {...propsImage}
-            onChange={(info: UploadChangeParam) => {
-              onChange(info.fileList)
-            }}
-            fileList={value}
-            maxCount={maxCount}
-            listType='picture-card'
-            onPreview={onPreview}
-          >
-            {fileList.length < maxCount && '+ Upload'}
-          </Upload>
+        render={({ field, fieldState: { error } }) => (
+          <>
+            <div className={styles.groupImagesUpload}>
+              {images.map((image, index) => (
+                <div className={styles.imagePreview} key={index}>
+                  <div className={styles.customDelete}>
+                    <div className={styles.textDelete} onClick={() => handleDeleteImage(index)}>
+                      Delete
+                    </div>
+                  </div>
+                  <img src={image.urlPreview} alt='uploaded image' />
+                </div>
+              ))}
+              <input
+                className={styles.inputImage}
+                id='img'
+                type='file'
+                accept={accept}
+                multiple
+                value={field.value}
+                onChange={(e) => handleImageChange((e.target.files ?? []) as File[])}
+              />
+              <label htmlFor='img' className={styles.buttonUpload}>
+                <div className={styles.textUpload}>
+                  <div>+ Upload</div>
+                  <div>max {maxFiles} file(s)</div>
+                </div>
+              </label>
+            </div>
+            {error?.message && <p className='text-error'>{error?.message}</p>}
+          </>
         )}
       />
     </>

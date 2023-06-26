@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import type { UploadFile } from 'antd/es/upload/interface'
 
 import { exampleFormValidation } from '@/shared/validation/example-form-validation'
 import { Button, Checkbox, DatePicker, InputField, Radio, Select, TextArea, UploadImage } from '@/component'
 import { OPTIONS_GENDER, SELECT_POSITIONS, CHECKBOX_OPTIONS } from '@/shared/fake/data-global'
 import { DATE_FORMAT_LIST } from '@/constants/common'
+import { FileUploadType } from '@/types/global'
 import styles from './formSection.module.scss'
 
 const initialValues = {
@@ -21,7 +21,7 @@ const initialValues = {
   position: '',
   dateOfBirth: '',
   description: '',
-  avatar: undefined
+  avatar: []
 }
 
 interface IFormInput {
@@ -36,7 +36,7 @@ interface IFormInput {
   position: string
   dateOfBirth: string
   description: string
-  avatar: UploadFile[]
+  avatar: FileUploadType[]
 }
 
 const FormSection = () => {

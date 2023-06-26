@@ -22,11 +22,18 @@ type SelectOption = {
   value: string
 }
 
+type FileUploadType = {
+  urlPreview: string
+  name: string
+  file: File
+}
+
 export type {
   ToastType,
   ITableDataType,
   TablePaginationPositionTop,
   TablePaginationPositionBottom,
   RadioOption,
-  SelectOption
+  SelectOption,
+  FileUploadType
 }

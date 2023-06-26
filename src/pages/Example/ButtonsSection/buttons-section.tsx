@@ -5,7 +5,7 @@ import { Button } from '@/component'
 const ButtonsSection = () => {
   return (
     <div className='example-section'>
-      <div className='section-title'>Modal</div>
+      <div className='section-title'>Button</div>
       <div className='section-body'>
         <div className='wrap-button'>
           <Button>Normal</Button>

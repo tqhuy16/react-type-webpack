@@ -12,8 +12,8 @@ const exampleFormValidation = yup.object().shape({
   // email: yup.string(),
   position: yup.string(),
   dateOfBirth: yup.string(),
-  description: yup.string()
-  // avatar: ,
+  description: yup.string(),
+  avatar: yup.mixed().required('Required')
 })
 
 export { exampleFormValidation }
